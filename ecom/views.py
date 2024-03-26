@@ -57,7 +57,7 @@ def customer_signup_view(request):
             my_customer_group = Group.objects.get_or_create(name='CUSTOMER')
             my_customer_group[0].user_set.add(user)
         return HttpResponseRedirect('customerlogin')
-    return render(request,'ecom/customersignup.html',context=mydict)
+    return render(request,'customersignup.html',context=mydict)
 
 #-----------for checking user iscustomer
 def is_customer(user):
