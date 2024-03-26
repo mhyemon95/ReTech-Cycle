@@ -16,7 +16,7 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
 
-#for showing login button for admin(by sumit)
+#for showing login button for admin
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
