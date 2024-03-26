@@ -19,7 +19,6 @@ from django.contrib.auth.models import Group
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-# Your view code here
 
 # Create your views here.
 
@@ -35,28 +34,6 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
 
-def customer_signup_view(request):
-    userForm=forms.CustomerUserForm()
-    customerForm=forms.CustomerForm()
-    mydict={'userForm':userForm,'customerForm':customerForm}
-    if request.method=='POST':
-        userForm=forms.CustomerUserForm(request.POST)
-        customerForm=forms.CustomerForm(request.POST,request.FILES)
-        if userForm.is_valid() and customerForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
-            user.save()
-            customer=customerForm.save(commit=False)
-            customer.user=user
-            customer.save()
-            my_customer_group = Group.objects.get_or_create(name='CUSTOMER')
-            my_customer_group[0].user_set.add(user)
-        return HttpResponseRedirect('customerlogin')
-    return render(request,'customersignup.html',context=mydict)
-
-#-----------for checking user iscustomer
-def is_customer(user):
-    return user.groups.filter(name='CUSTOMER').exists()
 
 #---------AFTER ENTERING CREDENTIALS WE CHECK WHETHER USERNAME AND PASSWORD IS OF ADMIN,CUSTOMER
 def afterlogin_view(request):
