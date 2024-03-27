@@ -27,4 +27,8 @@ urlpatterns = [
     path('customersignup', views.customer_signup_view),
     path('afterlogin', views.afterlogin_view,name='afterlogin'),
     path('customerlogin', LoginView.as_view(template_name='customerlogin.html'),name='customerlogin'),
+    path('adminclick', views.adminclick_view),
+    path('adminlogin', LoginView.as_view(template_name='adminlogin.html'),name='adminlogin'),
+
+
 ]
