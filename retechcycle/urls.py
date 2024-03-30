@@ -14,4 +14,7 @@ urlpatterns = [
     path('adminclick', views.adminclick_view),
     path('adminlogin', LoginView.as_view(template_name='adminlogin.html'),name='adminlogin'),
     path('customer-home', views.customer_home_view,name='customer-home'),
+    path('my-profile', views.my_profile_view,name='my-profile'),
+    path('edit-profile', views.edit_profile_view,name='edit-profile'),
+    
 ]
