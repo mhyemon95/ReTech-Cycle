@@ -14,6 +14,7 @@
       background: #0F2027;  /* fallback for old browsers */
       background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
       background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
       color: #fff;
       font-weight: bold;
       line-height: 80px;
@@ -39,6 +40,8 @@
       color: #fff;
     }
 
+    
+
     .menu {
       top: 50px;
     }
@@ -49,13 +52,12 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <br><br><br><br><br><br>
-<!------ update page for doctor by admin(sumit)  ---------->
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="container register-form">
     <div class="form">
       <div class="note">
-        <p>ADD PRODUCTS</p>
+        <p>Update Product Details</p>
       </div>
       <div class="form-content">
         <div class="row">
@@ -65,28 +67,25 @@
               {% render_field productForm.name class="form-control" placeholder="Product Name" %}
             </div>
             <div class="form-group">
-              <label for="">Short Description</label>
+              <label for="">Product Description</label>
               {% render_field productForm.description class="form-control" placeholder="Description" %}
             </div>
-
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Product Price (৳)</label>
-              {% render_field productForm.price class="form-control" placeholder="52" %}
+              <label for="">Product Price</label>
+              {% render_field productForm.price class="form-control" placeholder="Price" %}
             </div>
             <div class="form-group">
-              <label for="">Product Image</label>
               {% render_field productForm.product_image class="form-control" placeholder="product_image" %}
             </div>
 
 
           </div>
         </div>
-        <button type="submit" class="btnSubmit">ADD</button>
+        <button type="submit" class="btnSubmit">Update Product Details</button>
       </div>
     </div>
   </div>
 </form>
-
 {% endblock content %}

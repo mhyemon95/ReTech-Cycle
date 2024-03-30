@@ -14,6 +14,7 @@
       background: #0F2027;  /* fallback for old browsers */
       background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
       background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
       color: #fff;
       font-weight: bold;
       line-height: 80px;
@@ -35,9 +36,10 @@
       padding: 1%;
       width: 20%;
       cursor: pointer;
-      background: #009414;
+      background:#009414;
       color: #fff;
     }
+
 
     .menu {
       top: 50px;
@@ -49,44 +51,45 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <br><br><br><br><br><br>
-<!------ update page for doctor by admin(sumit)  ---------->
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="container register-form">
     <div class="form">
       <div class="note">
-        <p>ADD PRODUCTS</p>
+        <p>Update Customer Details</p>
       </div>
       <div class="form-content">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Product Name</label>
-              {% render_field productForm.name class="form-control" placeholder="Product Name" %}
+              {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
             </div>
             <div class="form-group">
-              <label for="">Short Description</label>
-              {% render_field productForm.description class="form-control" placeholder="Description" %}
+              {% render_field userForm.username class="form-control" placeholder="Username" %}
             </div>
-
+            <div class="form-group">
+              {% render_field customerForm.mobile class="form-control" placeholder="Contact" %}
+            </div>
+            <div class="form-group">
+              {% render_field customerForm.profile_pic class="form-control" placeholder="Profile Picture" %}
+            </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="">Product Price (৳)</label>
-              {% render_field productForm.price class="form-control" placeholder="52" %}
+              {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
             </div>
             <div class="form-group">
-              <label for="">Product Image</label>
-              {% render_field productForm.product_image class="form-control" placeholder="product_image" %}
+              {% render_field userForm.password class="form-control" placeholder="Password" %}
             </div>
-
+            <div class="form-group">
+              {% render_field customerForm.address class="form-control" placeholder="Address" %}
+            </div>
 
           </div>
         </div>
-        <button type="submit" class="btnSubmit">ADD</button>
+        <button type="submit" class="btnSubmit">Update</button>
       </div>
     </div>
   </div>
 </form>
-
 {% endblock content %}
