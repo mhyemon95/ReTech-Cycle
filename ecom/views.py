@@ -69,6 +69,9 @@ def afterlogin_view(request):
         return redirect('customer-home')
     else:
         return redirect('admin-dashboard')
+    
+
+
 
 #---------------------------------------------------------------------------------
 #------------------------ CUSTOMER RELATED VIEWS START ------------------------------
@@ -381,4 +384,33 @@ def update_order_view(request,pk):
 def view_feedback_view(request):
     feedbacks=models.Feedback.objects.all().order_by('-id')
     return render(request,'view_feedback.html',{'feedbacks':feedbacks})
+
+#my profile and My Profile edit:
+
+@login_required(login_url='customerlogin')
+@user_passes_test(is_customer)
+def my_profile_view(request):
+    customer=models.Customer.objects.get(user_id=request.user.id)
+    return render(request,'ecom/my_profile.html',{'customer':customer})
+
+
+@login_required(login_url='customerlogin')
+@user_passes_test(is_customer)
+def edit_profile_view(request):
+    customer=models.Customer.objects.get(user_id=request.user.id)
+    user=models.User.objects.get(id=customer.user_id)
+    userForm=forms.CustomerUserForm(instance=user)
+    customerForm=forms.CustomerForm(request.FILES,instance=customer)
+    mydict={'userForm':userForm,'customerForm':customerForm}
+    if request.method=='POST':
+        userForm=forms.CustomerUserForm(request.POST,instance=user)
+        customerForm=forms.CustomerForm(request.POST,instance=customer)
+        if userForm.is_valid() and customerForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            customerForm.save()
+            return HttpResponseRedirect('my-profile')
+    return render(request,'ecom/edit_profile.html',context=mydict)
+
 
