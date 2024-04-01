@@ -391,7 +391,7 @@ def view_feedback_view(request):
 @user_passes_test(is_customer)
 def my_profile_view(request):
     customer=models.Customer.objects.get(user_id=request.user.id)
-    return render(request,'ecom/my_profile.html',{'customer':customer})
+    return render(request,'my_profile.html',{'customer':customer})
 
 
 @login_required(login_url='customerlogin')
@@ -411,6 +411,6 @@ def edit_profile_view(request):
             user.save()
             customerForm.save()
             return HttpResponseRedirect('my-profile')
-    return render(request,'ecom/edit_profile.html',context=mydict)
+    return render(request,'edit_profile.html',context=mydict)
 
 
