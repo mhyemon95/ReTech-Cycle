@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>About US</title>
+  <style media="screen">
+    .footer{
+      position: fixed;
+    }
+  </style>
+</head>
+
+<body style="background-color:#f7f7f7;">
+  {%if request.user.is_authenticated%}
+    {% include "customer_navbar.html" %}
+  {%else%}
+    {% include "navbar.html" %}
+  {%endif%}
+  <br><br><br>
+<h3 style="text-align:center;"><b>ReTech_Cycle</b> is a company that specializes in refurbishing and reselling old phones, providing a sustainable and eco-friendly way to dispose of your old devices. By selling your old phone to RenewTech, you can give it a new life and prevent it from ending up in a landfill. </h3>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  {% include "footer.html" %}
+</body>
+</html>

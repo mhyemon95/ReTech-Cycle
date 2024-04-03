@@ -1,15 +1,15 @@
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from django.http import HttpResponseRedirect,HttpResponse
-from django.shortcuts import render,redirect,reverse
+# from django.shortcuts import render,redirect,reverse
 from . import forms,models
-from django.http import HttpResponseRedirect,HttpResponse
+# from django.http import HttpResponseRedirect,HttpResponse
 from django.core.mail import send_mail
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
@@ -18,6 +18,9 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib.auth.models import Group
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from ecom.models import Customer
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -40,6 +43,13 @@ def adminclick_view(request):
         return HttpResponseRedirect('afterlogin')
     return HttpResponseRedirect('adminlogin')
 
+def logout_view(request):
+    if request.user.is_authenticated:
+        logout(request)
+        return render(request,'index.html')
+
+
+
 def customer_signup_view(request):
     userForm=forms.CustomerUserForm()
     customerForm=forms.CustomerForm()
@@ -58,6 +68,13 @@ def customer_signup_view(request):
             my_customer_group[0].user_set.add(user)
         return HttpResponseRedirect('customerlogin')
     return render(request,'customersignup.html',context=mydict)
+
+def customer_signin_view(request):
+    form = forms.LoginForm()
+    if request.method == 'POST':
+        form = forms.LoginForm(request.POST)
+
+    return render(request,'customerlogin.html',context={'form':form})
 
 #-----------for checking user iscustomer
 def is_customer(user):
@@ -412,5 +429,24 @@ def edit_profile_view(request):
             customerForm.save()
             return HttpResponseRedirect('my-profile')
     return render(request,'edit_profile.html',context=mydict)
+
+#---------------------------------------------------------------------------------
+#------------------------ ABOUT US AND CONTACT US VIEWS START --------------------
+#---------------------------------------------------------------------------------
+def aboutus_view(request):
+    return render(request,'aboutus.html')
+
+def contactus_view(request):
+    sub = forms.ContactusForm()
+    if request.method == 'POST':
+        sub = forms.ContactusForm(request.POST)
+        if sub.is_valid():
+            email = sub.cleaned_data['Email']
+            name=sub.cleaned_data['Name']
+            message = sub.cleaned_data['Message']
+            send_mail(str(name)+' || '+str(email),message, settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
+            return render(request, 'contactussuccess.html')
+    return render(request, 'contactus.html', {'form':sub})
+
 
 
