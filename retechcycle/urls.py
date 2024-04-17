@@ -34,6 +34,21 @@ urlpatterns = [
     path('update-customer/<int:pk>', views.update_customer_view,name='update-customer'),
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view,name='contactus'),
+    path('search', views.search_view,name='search'),
+    path('send-feedback', views.send_feedback_view,name='send-feedback'),
+    path('view-feedback', views.view_feedback_view,name='view-feedback'),
+    path('customer-servicing', views.customer_servicing),
+    path('customer-servicing-add', views.customer_servicing_add),
+    path('customer-servicing-orders', views.customer_servicing_orders),
+    path('customer-sell', views.customer_sell_view),
+    path('my-order', views.my_order_view,name='my-order'),
+    path('download-invoice/<int:orderID>/<int:productID>', views.download_invoice_view,name='download-invoice'),
+    path('add-to-cart/<int:pk>', views.add_to_cart_view,name='add-to-cart'),
+    path('cart', views.cart_view,name='cart'),
+    path('remove-from-cart/<int:pk>', views.remove_from_cart_view,name='remove-from-cart'),
+    path('customer-address', views.customer_address_view,name='customer-address'),
+    path('payment-success', views.payment_success_view,name='payment-success'),
+
 
 
 ]

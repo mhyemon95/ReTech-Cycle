@@ -364,7 +364,7 @@ img {
   transition: left .65s ease-out;
 }
 
-.slide-1 {
+/* .slide-1 {
   background-image: url("{% static 'images/banner-1.png' %}");
 }
 .slide-2 {
@@ -375,7 +375,7 @@ img {
 }
 .slide-4 {
   background-image: url("{% static 'images/ecom-banner3.jpg' %}");
-}
+} */
 
 
 /* Container holding the video */
@@ -430,7 +430,73 @@ img {
       
   </video>
 </div>
+{%if products%}
+<h3 style="text-align:center; color:#3E454C;">{{word}}</h3>
+<br>
 
+<!-- products data start -->
+  <div class="row">
+
+      {% for p in products %}
+      <!-- card1 -->
+      <div class="column">
+      <div class="container page-wrapper" style="width: 450px;">
+        <div class="page-inner">
+          <div class="row">
+            <div class="el-wrapper">
+              <div class="box-up">
+                <img class="img" src="{% static p.product_image.url %}" alt="product pic" height="300px" width="300px">
+                <div class="img-info">
+                  <div class="info-inner">
+                    <span style="background-color:#3e454c; color:fbfbfb;"class="p-company">{{p.name}}</span>
+
+                  </div>
+                  <div class="a-size">{{p.description}}</div>
+                </div>
+              </div>
+
+              <div class="box-down">
+                <div class="h-bg">
+                  <div class="h-bg-inner"></div>
+                </div>
+
+                <a class="cart" href="{% url 'add-to-cart' p.id  %}">
+                  <span class="price">৳{{p.price}}</span>
+                  <span class="add-to-cart">
+                    <span class="txt"><i class="fa fa-shopping-cart"></i> Add To Cart</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+<!-- card1 end -->
+{% if forloop.counter|divisibleby:"3" %}
+    </div>
+
+    <div class="row">
+
+          <br><br><br><br><br>
+{% endif %}
+  {% endfor %}
+</div>
+<!-- products data end -->
+{%else%}
+<h3 style="text-align:center; color:#3E454C;">No Search Found</h3>
+{%endif%}
+
+<script>
+    {%if messages %}
+    {%for message in messages%}
+    alert('{{message}}');
+    {%endfor%}
+    {%endif%}
+</script>
+<br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 {% endblock content %}
+
