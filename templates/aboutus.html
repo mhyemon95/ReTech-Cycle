@@ -3,13 +3,48 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>About US</title>
   <style media="screen">
-    .footer{
-      position: fixed;
+footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            padding: auto 50px 25px 35px;
+          margin: 0px;
+         left: 0;
+         bottom: 0;
+         width: 100%;
+         color: white; /* Change the text color as needed */
+        text-align: center;
+        }
+        .social-icons a {
+            color: #fff; /* Adjust icon color */
+            font-size: 24px; /* Adjust icon size */
+            margin-right: 10px;
+        }
+        
+.card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
     }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    p {
+      color: #666;
+      line-height: 1.6;
+    }
+    
+        
   </style>
 </head>
 
@@ -20,8 +55,49 @@
     {% include "navbar.html" %}
   {%endif%}
   <br><br><br>
-<h3 style="text-align:center;"><b>ReTech_Cycle</b> is a company that specializes in refurbishing and reselling old phones, providing a sustainable and eco-friendly way to dispose of your old devices. By selling your old phone to RenewTech, you can give it a new life and prevent it from ending up in a landfill. </h3>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  {% include "footer.html" %}
+  <div class="container">
+    <div class="card">
+      <h1>About ReTechCycle</h1>
+      <p>Welcome to ReTechCycle, where innovation meets sustainability in the world of mobile technology. At ReTechCycle, we embark on a transformative journey to breathe new life into old, non-functional mobile devices. Our mission is clear: to redefine the possibilities of mobile technology by restoring devices considered obsolete.</p>
+  
+      <h2>Our Mission</h2>
+      <p>Our mission extends beyond mere technological revival. We are driven by a deep commitment to environmental stewardship and the promotion of a more sustainable tech ecosystem. By reviving seemingly dead mobile devices, we aim to significantly reduce electronic waste and contribute to a greener, more sustainable future.</p>
+  
+      <h2>Our Vision</h2>
+      <p>At ReTechCycle, we envision a world where every mobile device has the potential for a second life. We believe in the power of technology to create positive change and are dedicated to harnessing this power for the greater good. By extending the lifecycles of mobile devices, we strive to challenge the prevailing notion of planned obsolescence and pave the way for a more circular economy in the tech industry.</p>
+  
+      <h2>Our Approach</h2>
+      <p>Our approach is rooted in innovation, expertise, and a passion for sustainability. Through meticulous refurbishment and repair processes, we breathe new life into old devices, restoring them to their former glory. We ensure that each device meets the highest standards of quality and functionality before reintroducing it to the market.</p>
+  
+      <h2>Join Us</h2>
+      <p>We invite you to join us on this exciting journey as we dive into the realm of technology resurrection. Together, let's witness the potential of our project to make a lasting impact on the environment and the way we perceive mobile device lifecycles. Whether you're a tech enthusiast, an environmental advocate, or simply someone who believes in the power of positive change, there's a place for you at ReTechCycle.</p>
+  
+      <p>Thank you for supporting our mission to create a more sustainable future through technology. Together, we can make a difference.</p>
+    </div>
+  </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer>
+  <div class="social-icons">
+      <a href="#" class="fab fa-facebook"></a>
+      <a href="#" class="fab fa-whatsapp"></a>
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <!-- Add more social platform icons as needed -->
+  </div>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div style="color:#c5c5c5;" class="wow fadeInUp footer-copyright">
+            <p><br>
+              &copy; 2024 ReTech-Cycle Team </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h6>Developed by <a href="#" target="_blank">Md.Meherub Hossain Yemon</a>, <a href="#" target="_blank">Md.Raihan Kabir
+  </a>,
+       <a href="#" target="_blank">Md.Sohel Rahman</a>
+  </a></h6>
+  
+</footer>
 </body>
 </html>

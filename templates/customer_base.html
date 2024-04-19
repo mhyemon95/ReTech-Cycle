@@ -1,6 +1,10 @@
 <html>
 {% load static %}
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- jQuery library -->
@@ -15,7 +19,7 @@ body {
 }
 
 #navbar {
-    background-color: #3e454c;
+    background-color: #39546E;
     color: black;
 }
 
@@ -174,64 +178,6 @@ body {
 .menu {
     cursor: pointer
 }
-
-        /*---------------------------------------
-           Social section
-        -----------------------------------------*/
-        footer {
-          padding: 0px 0px 0px 0px;
-          background-color: black;
-          margin: 0px;
-        }
-
-
-        #ftr {
-
-          padding: 20px;
-        }
-
-        .fa {
-
-          font-size: 23px;
-          width: 60px;
-          text-align: center;
-          text-decoration: none;
-          margin: 5px 2px;
-          border-radius: 50%;
-        }
-
-        .fa:hover {
-          opacity: 0.5;
-          text-decoration: none;
-        }
-
-        .fa-facebook {
-          background: #3B5998;
-          color: white;
-          margin-top: 30px;
-        }
-
-        .fa-whatsapp {
-          background: #25d366;
-          color: white;
-        }
-
-        .fa-twitter {
-          background: #55ACEE;
-          color: white;
-        }
-
-        .fa-instagram {
-          background: #125688;
-          color: white;
-        }
-
-        p {
-          text-align: center;
-
-        }
-
-
 @media screen and (min-width: 768px) {
     .largenav {
         display: block
@@ -245,6 +191,18 @@ body {
         margin: 0px
     }
 }
+footer {
+          background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .social-icons a {
+            color: #fff; /* Adjust icon color */
+            font-size: 24px; /* Adjust icon size */
+            margin-right: 10px;
+        }
+
 </style>
 </head>
 <body>
@@ -292,27 +250,30 @@ body {
 <!-- content end-->
 <br><br><br>
 <footer>
-  <br>
-
-  <p>
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-whatsapp"></a>
-    <a href="#" class="fa fa-instagram"></a>
-    <a href="#" class="fa fa-twitter"></a>
-  </p>
-
-  <br>
+  <div class="social-icons">
+      <a href="#" class="fab fa-facebook"></a>
+      <a href="#" class="fab fa-whatsapp"></a>
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <!-- Add more social platform icons as needed -->
+  </div>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
-          <p>
-            &copy; 2024 Developed By ReTech_Cycle </p>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <div style="color:#c5c5c5;" class="wow fadeInUp footer-copyright">
+            <p><br>
+              &copy; 2024 ReTech-Cycle Team </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <h6>Developed by <a href="#" target="_blank">Md.Meherub Hossain Yemon</a>, <a href="#" target="_blank">Md.Raihan Kabir
+  </a>,
+       <a href="#" target="_blank">Md.Sohel Rahman</a>
+  </a></h6>
+  
 </footer>
+
 <script>
 $(document).ready(function(){
 
