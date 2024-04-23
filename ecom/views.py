@@ -488,7 +488,7 @@ def download_invoice_view(request,orderID,productID):
 
 
     }
-    return render_to_pdf('ecom/download_invoice.html',mydict)
+    return render_to_pdf('download_invoice.html',mydict)
 #---------------------------------------------------------------------------------
 #------------------------ PUBLIC CUSTOMER RELATED VIEWS START ---------------------
 #---------------------------------------------------------------------------------
