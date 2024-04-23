@@ -24,10 +24,23 @@ urlpatterns = [
     path('delete-product/<int:pk>', views.delete_product_view,name='delete-product'),
     path('update-product/<int:pk>', views.update_product_view,name='update-product'),
 
+#added by me
+    path('send-feedback', views.send_feedback_view,name='send-feedback'),
+    path('view-feedback', views.view_feedback_view,name='view-feedback'),
+
+
     path('admin-view-booking', views.admin_view_booking_view,name='admin-view-booking'),
     path('delete-order/<int:pk>', views.delete_order_view,name='delete-order'),
     path('update-order/<int:pk>', views.update_order_view,name='update-order'),
     path('view-customer', views.view_customer_view,name='view-customer'),
     path('delete-customer/<int:pk>', views.delete_customer_view,name='delete-customer'),
     path('update-customer/<int:pk>', views.update_customer_view,name='update-customer'),
+
+#added by me
+    path('add-to-cart/<int:pk>', views.add_to_cart_view,name='add-to-cart'),
+    path('cart', views.cart_view,name='cart'),
+    path('remove-from-cart/<int:pk>', views.remove_from_cart_view,name='remove-from-cart'),
+    path('customer-address', views.customer_address_view,name='customer-address'),
+    path('payment-success', views.payment_success_view,name='payment-success'),
+
 ]
